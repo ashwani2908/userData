@@ -6,6 +6,7 @@ import ErrorModal from "../UI/ErrorModal";
 const Form = (props) => {
   const [currentInput, setInput] = useState("");
   const [currentAge, setAge] = useState("");
+  const [currentCollege, setCollege] = useState("");
   const [error , setError] = useState();
   //error
 
@@ -16,6 +17,10 @@ const Form = (props) => {
   const ageValueChange = (e) => {
     setAge(e.target.value);
   };
+
+  const collageValueChange = (e) => {
+    setCollege(e.target.value);
+  }
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -34,9 +39,10 @@ const Form = (props) => {
       return;
     }
 
-    props.onAddUser(currentInput, currentAge);
+    props.onAddUser(currentInput, currentAge , currentCollege);
     setInput("");
     setAge("");
+    setCollege("");
   };
 
   const errorHandler = () =>{
@@ -61,6 +67,13 @@ const Form = (props) => {
             placeholder="Enter Your Age"
             value={currentAge}
             onChange={ageValueChange}
+          />
+          <label>College Name</label>
+          <input
+            type="text"
+            placeholder="Enter Your College Name"
+            value={currentCollege}
+            onChange={collageValueChange}
           />
           <button type="submit">Add User</button>
         </form>
