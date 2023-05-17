@@ -5,7 +5,7 @@ import Card from "./Card";
 import classes from "./ErrorModal.module.css";
 
 const Backdrop = (props) => {
-  return <div className={classes.backdrop} onClick={props.onConfirm} />;
+  return <div className={classes.backdrop} onClick={props.onClick} />;
 };
 
 const ModalOverlay = (props) => {
@@ -18,7 +18,7 @@ const ModalOverlay = (props) => {
         <p>{props.message}</p>
       </div>
       <footer className={classes.actions}>
-        <button onClick={props.onConfirm}>Okay</button>
+        <button onClick={props.onClick}>Okay</button>
       </footer>
     </Card>
   );
